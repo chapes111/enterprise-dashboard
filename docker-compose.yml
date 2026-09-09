@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: ./EnterpriseDashboard.Api
+      dockerfile: Dockerfile
+    ports:
+      - "5025:5025"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=aws-0-us-east-1.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.clpbfnfdvqfjfnbwythg;Password=kyqzyt-zyngi9-wejxyB;Pooling=true;
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      - API_URL=http://api:5025/api/metrics
+      - ORIGIN=http://localhost:5173
+    depends_on:
+      - api

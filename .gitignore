@@ -1,0 +1,17 @@
+# .NET / C#
+**/bin/
+**/obj/
+EnterpriseDashboard.Api/appsettings.Development.json
+EnterpriseDashboard.Api/appsettings.Production.json
+
+# Node / Sveltekit
+**/node_modules/
+frontend/.svelte-kit/
+frontend/build/
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# OS / Docker
+.DS_Store
+*.user
